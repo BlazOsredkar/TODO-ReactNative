@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 import {
   View,
   TextInput,
@@ -6,40 +6,18 @@ import {
   StyleSheet,
   Modal,
   Image,
-  AsyncStorage,
-} from "react-native";
-
+} from 'react-native';
 
 function GoalInput(props) {
-  const [enteredGoalText, setEnteredGoalText] = useState("");
+  const [enteredGoalText, setEnteredGoalText] = useState('');
 
   function goalInputHandler(enteredText) {
     setEnteredGoalText(enteredText);
   }
 
-  async function addGoalHandler() {
-    if (enteredGoalText.trim().length === 0) {
-      return;
-    }
-
-    await saveGoalToStorage(enteredGoalText); // Save the goal to AsyncStorage
+  function addGoalHandler() {
     props.onAddGoal(enteredGoalText);
-    setEnteredGoalText("");
-  }
-
-  async function saveGoalToStorage(goal) {
-    try {
-      const storedGoals = await AsyncStorage.getItem("courseGoals");
-      const parsedGoals = storedGoals ? JSON.parse(storedGoals) : [];
-
-      const updatedGoals = [
-        ...parsedGoals,
-        { text: goal, id: Math.random().toString() },
-      ];
-      await AsyncStorage.setItem("courseGoals", JSON.stringify(updatedGoals));
-    } catch (error) {
-      console.error("Error saving goal:", error);
-    }
+    setEnteredGoalText('');
   }
 
   return (
@@ -47,7 +25,7 @@ function GoalInput(props) {
       <View style={styles.inputContainer}>
         <Image
           style={styles.image}
-          source={require("../assets/images/goal.png")}
+          source={require('../assets/images/goal.png')}
         />
         <TextInput
           style={styles.textInput}
@@ -73,10 +51,10 @@ export default GoalInput;
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 16,
-    backgroundColor: "#311b6b",
+    backgroundColor: '#311b6b',
   },
   image: {
     width: 100,
@@ -85,16 +63,16 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    borderColor: "#e4d0ff",
-    backgroundColor: "#e4d0ff",
-    color: "#120438",
+    borderColor: '#e4d0ff',
+    backgroundColor: '#e4d0ff',
+    color: '#120438',
     borderRadius: 6,
-    width: "100%",
+    width: '100%',
     padding: 16,
   },
   buttonContainer: {
     marginTop: 16,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   button: {
     width: 100,
