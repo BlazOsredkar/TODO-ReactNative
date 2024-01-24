@@ -29,16 +29,16 @@ function GoalInput(props) {
         />
         <TextInput
           style={styles.textInput}
-          placeholder="Your course goal!"
+          placeholder="Tvoj cilj za danes"
           onChangeText={goalInputHandler}
           value={enteredGoalText}
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={props.onCancel} color="#f31282" />
+            <Button title="Prekliči" onPress={props.onCancel} color="#f31282" />
           </View>
           <View style={styles.button}>
-            <Button title="Add Goal" onPress={addGoalHandler} color="#b180f0" />
+            <Button title="Dodaj cilj" onPress={addGoalHandler} color="#b180f0" />
           </View>
         </View>
       </View>
@@ -51,10 +51,10 @@ export default GoalInput;
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 16,
-    backgroundColor: '#311b6b',
+    backgroundColor: "#0a6bcc",
   },
   image: {
     width: 100,
@@ -63,16 +63,16 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    borderColor: '#e4d0ff',
-    backgroundColor: '#e4d0ff',
-    color: '#120438',
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
+    color: "#120438",
     borderRadius: 6,
-    width: '100%',
+    width: "100%",
     padding: 16,
   },
   buttonContainer: {
     marginTop: 16,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   button: {
     width: 100,
